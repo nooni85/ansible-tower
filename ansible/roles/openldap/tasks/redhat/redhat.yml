@@ -1,5 +1,26 @@
 ---
-- name: Install web server
-  ansible.builtin.yum:
-    name: "httpd"
+- name: Install openldap
+  ansible.builtin.dnf:
+    name: "openldap"
     state: present
+
+
+- name: Install openldap-servers
+  ansible.builtin.dnf:
+    name: "openldap-servers"
+    state: present
+
+- name: Install openldap-clients
+  ansible.builtin.dnf:
+    name: "openldap-clients"
+    state: present
+
+- name: Install sendmail-cf
+  ansible.builtin.dnf:
+    name: "sendmail-cf"
+    state: present
+
+- name: Copying sendmail schema file to openldap.
+  copy:
+    src: "/usr/share/sendmail-cf/sendmail.schema"
+    dest: "/etc/openldap/schema/mail.schema"
