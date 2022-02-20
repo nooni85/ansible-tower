@@ -4,7 +4,6 @@
     name: "openldap"
     state: present
 
-
 - name: Install openldap-servers
   ansible.builtin.dnf:
     name: "openldap-servers"
@@ -24,3 +23,21 @@
   copy:
     src: "/usr/share/sendmail-cf/sendmail.schema"
     dest: "/etc/openldap/schema/mail.schema"
+
+- name: create tmp directory
+  tasks:
+    - file:
+      path: "/tmp/openldap"
+      state: directory
+    - file:
+      path: "/tmp/ldif"
+      state: directory
+
+- name: copy tmp directory
+  copy:
+    src: "redhat/schema_conv.conf"
+    dest: "/tmp/openldap/schema_conv.conf"
+
+- name: merge schmea defines
+  ansible.builtin.shell: <
+    slaptest -f /tmp/openldap/schema_conv.conf -F /tmp/ldif/
