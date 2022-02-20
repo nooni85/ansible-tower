@@ -3,7 +3,12 @@
 - name: Install the correct OpenLDAP server for RHEL
   import_tasks: redhat/redhat.yml
   when: ansible_facts['os_family']|lower == 'redhat'
+  vars:
+    schema_location: /etc/openldap/schema
 
 - name: Install the correct OpenLDAP server for Debian
   import_tasks: debian/debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
+  vars:
+    schema_location: /etc/ldap/schema
+
