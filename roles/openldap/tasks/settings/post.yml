@@ -1,0 +1,8 @@
+---
+- name: Modify mail.ldif
+  shell:
+    cmd: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{schema.location}}/mail.ldif"
+    executable: /bin/bash
+  register: result
+  failed_when:
+    - result.rc != 80

@@ -1,5 +1,5 @@
 ---
-# roles/example/tasks/main.yml
+# roles/example/tasks/pre.yml
 #- name: gather os specific variables
 #  vars_files:
 #    - "{{ansible_facts['distribution']}}-{{ansible_facts['distribution_major_version']}}.yml"
@@ -21,11 +21,20 @@
      name: "{{ package_name }}"
      state: present
 
+- name: Stop Service
+  service:
+    name: "{{ item }}"
+    state: stopped
+  with_items: "{{ service_name }}"
+
 - name: Importing settings
-  include_tasks: "settings/main.yml"
+  include_tasks: "settings/pre.yml"
 
 - name: "starting services"
   service:
      name: "{{ item }}"
      state: started
   with_items: "{{ service_name }}"
+
+- name: Importing settings
+  include_tasks: "settings/post.yml"

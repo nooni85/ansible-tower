@@ -33,7 +33,4 @@
     sed -i /entryCSN/d {{schema.location}}/mail.ldif
     sed -i /modifiersName/d {{schema.location}}/mail.ldif
     sed -i /modifyTimestamp/d {{schema.location}}/mail.ldif
-
-- name: add schema defines
-  shell: |
-    ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{schema.location}}/mail.ldif
+    sed -i /entryUUID/d {{schema.location}}/mail.ldif
