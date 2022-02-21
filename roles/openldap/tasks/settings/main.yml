@@ -2,6 +2,13 @@
   copy:
     src: "/usr/share/sendmail-cf/sendmail.schema"
     dest: "{{schema_location}}/mail.schema"
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Copying sendmail schema file to openldap.
+  copy:
+    src: "/usr/share/sendmail-cf/sendmail.schema"
+    dest: "{{schema_location}}/mail.schema"
+  when: ansible_facts['os_family']|lower == 'redhat'
 
 - name: creating tmp directory
   file:

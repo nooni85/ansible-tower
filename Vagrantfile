@@ -9,14 +9,14 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "256"]
+    vb.customize ["modifyvm", :id, "--memory", "512"]
   end
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.define "local-centos" do |local|
     local.vm.hostname = "centos-local.dev"
-    local.vm.box = "almalinux/centos-stream-9"
+    local.vm.box = "generic/fedora28"
     local.vm.network :private_network, ip: "192.168.60.2"
   end
 

@@ -1,24 +1,28 @@
 ---
-- name: Install openldap
-  ansible.builtin.dnf:
-    name: "openldap"
-    state: present
+- name: Install OpenLDAP for RedHat 8
+  dnf:
+    name:
+      - openldap
+      - openldap-servers
+      - openldap-clients
+      - sendmail-cf
+    state: latest
+    update_cache: true
+  when: ansible_facts['lsb']['major_release'] | int >= 8
 
-- name: Install openldap-servers
-  ansible.builtin.dnf:
-    name: "openldap-servers"
-    state: present
-
-- name: Install openldap-clients
-  ansible.builtin.dnf:
-    name: "openldap-clients"
-    state: present
-
-- name: Install sendmail-cf
-  ansible.builtin.dnf:
-    name: "sendmail-cf"
-    state: present
+- name: Install OpenLDAP for RedHat 7
+  yum:
+    name:
+      - openldap
+      - openldap-servers
+      - openldap-clients
+      - sendmail-cf
+    state: latest
+    update_cache: true
+  when: ansible_facts['lsb']['major_release'] | int == 7
 
 - name: Setup packages
   import_tasks: settings/main.yml
+  vars:
+    schema_location: /etc/openldap/schema
 

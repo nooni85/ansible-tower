@@ -1,5 +1,10 @@
 ---
-- name: Install web server
-  ansible.builtin.apt:
-    name: "apache2"
-    state: present
+# - name: Install MongoDB
+#   apt:
+#     pkg:
+#       - mongodb-org-server
+#       - mongodb-org-mongos
+#       - mongodb-org-shell
+#       - mongodb-org-tools 
+#     state: latest
+#     update_cache: true
