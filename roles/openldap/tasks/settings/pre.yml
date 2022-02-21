@@ -34,3 +34,18 @@
     sed -i /modifiersName/d {{schema.location}}/mail.ldif
     sed -i /modifyTimestamp/d {{schema.location}}/mail.ldif
     sed -i /entryUUID/d {{schema.location}}/mail.ldif
+
+- name: Copy ldif file
+  template:
+    src: "ldif/entries.ldif"
+    dest: "/tmp/ldif/"
+
+- name: Copy ldif file
+  template:
+    src: "ldif/entries.ldif"
+    dest: "/tmp/ldif/"
+
+- name: Register rootdn
+  shell:
+    cmd: touch foobar
+    chdir: /tmp/ldif

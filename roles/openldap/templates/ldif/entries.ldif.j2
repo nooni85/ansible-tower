@@ -1,0 +1,18 @@
+dn:  olcDatabase={1}hdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: {{}}
+
+# Organization for Example Corporation
+dn: dc=noonipoony,dc=com
+objectClass: dcObject
+objectClass: organization
+dc: noonipoony
+o: Noonipoony Corporation
+description: The Noonipoony Corporation
+
+# Organizational Role for Directory manager
+dn: cn=manager,dc=noonipoony,dc=com
+objectClass: organizationalRole
+cn: manager
+description: Directory manager

@@ -1,5 +1,6 @@
 ---
 # vars file for ansible-infra
 dev:
-  mail:
-    address:
+  ldap:
+    basedn: "dc=noonipoony,dc=com"
+    binddn: "cn=admin,dc=noonipoony,dc=com"
