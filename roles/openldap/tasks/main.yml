@@ -20,7 +20,12 @@
   package:
      name: "{{ package_name }}"
      state: present
-#- name: "starting services"
-#  service:
-#     name: "{{ service_name }}"
-#     state: started
+
+- name: Importing settings
+  include_tasks: "settings/main.yml"
+
+- name: "starting services"
+  service:
+     name: "{{ item }}"
+     state: started
+  with_items: "{{ service_name }}"

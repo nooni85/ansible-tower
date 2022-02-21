@@ -2,3 +2,9 @@
 package_name:
   - slapd
   - ldap-utils
+  - sendmail
+service_name:
+  - slapd
+schema:
+  location: /etc/ldap/schema
+  origin: /usr/share/sendmail/examples/ldap/sendmail.schema.v2

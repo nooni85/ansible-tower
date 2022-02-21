@@ -4,3 +4,4 @@ package_name:
   - openldap-servers
   - openldap-clients
   - sendmail-cf
+  - libselinux-python
