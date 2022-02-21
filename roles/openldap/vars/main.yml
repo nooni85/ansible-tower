@@ -1,2 +1,5 @@
 ---
 # vars file for ansible-infra
+dev:
+  mail:
+    address:

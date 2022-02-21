@@ -5,3 +5,8 @@ package_name:
   - openldap-clients
   - sendmail-cf
   - libselinux-python
+service_name:
+  - slapd
+schema:
+  location: /etc/openldap/schema
+  origin: /usr/share/sendmail-cf/sendmail.schema

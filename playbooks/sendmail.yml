@@ -1,0 +1,6 @@
+---
+- hosts: sendmail
+  roles:
+    - ../roles/container
+    - ../roles/sendmail
+  become: true

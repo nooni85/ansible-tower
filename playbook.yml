@@ -4,3 +4,9 @@
     - container
     - openldap
   become: true
+
+- hosts: sendmail
+  roles:
+    - container
+    - sendmail
+  become: true

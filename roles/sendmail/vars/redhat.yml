@@ -1,0 +1,10 @@
+---
+package_name:
+  - sendmail
+  - sendmail-cf
+service_name:
+  - sendmail
+
+mail:
+  cf:
+    m4: /usr/share/sendmail-cf/m4/cf.m4

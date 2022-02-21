@@ -1,0 +1,10 @@
+---
+- name: copy sendmail.mc file
+  template:
+    src: "mc/sendmail.mc.j2"
+    dest: "/etc/mail/sendmail.mc"
+
+- name: Build the sendmail directory
+  make:
+    chdir: /etc/mail
+  become: yes

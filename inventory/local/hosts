@@ -1,9 +1,12 @@
 [ldap]
 192.168.60.2
-192.168.60.3
+
+[sendmail]
+192.168.60.2
 
 [multi:children]
 ldap
+sendmail
 
 [multi:vars]
 ansible_connection=ssh

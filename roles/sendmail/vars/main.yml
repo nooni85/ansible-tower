@@ -1,0 +1,4 @@
+---
+# vars file for sendmail
+sendmail:
+  basedn: ""

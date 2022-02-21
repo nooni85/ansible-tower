@@ -1,0 +1,6 @@
+---
+- hosts: ldap
+  roles:
+    - ../roles/container
+    - ../roles/openldap
+  become: true
