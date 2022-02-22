@@ -6,3 +6,7 @@
   register: result
   failed_when:
     - result.rc != 80
+
+- name: Generate the root password for ldap
+  shell: slappasswd -s {{ ldap.basepw }} 
+  register: ldap_root_password

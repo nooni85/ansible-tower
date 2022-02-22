@@ -1,6 +1,6 @@
 ---
 # vars file for ansible-infra
-dev:
-  ldap:
-    basedn: "dc=noonipoony,dc=com"
-    binddn: "cn=admin,dc=noonipoony,dc=com"
+ldap:
+  basedn: "dc=noonipoony,dc=com"
+  basepw: "q3w2ePKP9g2Y"
+  binddn: "cn=admin,dc=noonipoony,dc=com"
